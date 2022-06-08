@@ -12,16 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// app.get("/", async (req, res) => {
-//   try {
-//     await getActivites(req.body);
-//     res.send(200);
-//   } catch (e) {
-//     res.status(400).send({
-//       message: "Cannot Retrieve!",
-//     });
-//   }
-// });
+// Get Routes
 
 app.get("/activities", async (req, res) => {
   const activities = await getActivites();
