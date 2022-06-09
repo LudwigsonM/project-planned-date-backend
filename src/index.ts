@@ -1,3 +1,5 @@
+// import { https } from "firebase-functions";
+import functions from "firebase-functions";
 import cors from "cors";
 import express from "express";
 import { config } from "dotenv";
@@ -13,6 +15,9 @@ app.use(express.json());
 app.use(cors());
 
 // Get Routes
+app.get("/", async (req, res) => {
+  res.send("Welcome To Plannedate !");
+});
 
 app.get("/activities", async (req, res) => {
   const activities = await getActivites();
@@ -34,6 +39,4 @@ app.get("/homedates", async (req, res) => {
   res.send(homedates);
 });
 
-app.listen(3000, () => {
-  console.log("Listening on https://localhost:3000");
-});
+export const api = functions.https.onRequest(app);
