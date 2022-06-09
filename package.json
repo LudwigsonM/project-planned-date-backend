@@ -4,7 +4,7 @@
   "scripts": {
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
-    "build": "tsc && cp build.package.json dist/package.json",
+    "build": "tsc && cp package.json dist/package.json",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
@@ -12,8 +12,7 @@
   "engines": {
     "node": "16"
   },
-  "main": "src/index.ts",
-  "type": "module",
+  "main": "index.js",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",

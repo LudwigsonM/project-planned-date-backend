@@ -1,5 +1,5 @@
 // import { https } from "firebase-functions";
-import functions from "firebase-functions";
+import * as functions from "firebase-functions";
 import cors from "cors";
 import express from "express";
 import { config } from "dotenv";
