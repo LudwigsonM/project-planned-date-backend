@@ -1,4 +1,3 @@
-// import { https } from "firebase-functions";
 import * as functions from "firebase-functions";
 import cors from "cors";
 import express from "express";
@@ -12,7 +11,11 @@ config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 // Get Routes
 app.get("/", async (req, res) => {
