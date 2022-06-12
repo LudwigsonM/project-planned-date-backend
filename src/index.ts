@@ -16,6 +16,7 @@ app.use(
     origin: "http://localhost:3000",
   })
 );
+//{origin: "http://localhost:3000",}
 
 // Get Routes
 app.get("/", async (req, res) => {
