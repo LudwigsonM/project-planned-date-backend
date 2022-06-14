@@ -6,6 +6,7 @@ import { getActivites } from "./services/activites";
 import { getEntertainments } from "./services/entertainments";
 import { getRestaurant } from "./services/restaurants";
 import { getHomeDates } from "./services/homeDates";
+import { createDateSubmitForm } from "./services/dateSubmitForm";
 
 config();
 
@@ -44,6 +45,18 @@ app.get("/restaurants", async (req, res) => {
 app.get("/homedates", async (req, res) => {
   const homedates = await getHomeDates();
   res.send(homedates);
+});
+
+//Post route(s)
+app.post("/submitadate", async (req, res) => {
+  try {
+    await createDateSubmitForm(req.body);
+    res.send(200);
+  } catch (e) {
+    res.status(400).send({
+      message: "Form not submitted ",
+    });
+  }
 });
 
 export const api = functions.https.onRequest(app);
