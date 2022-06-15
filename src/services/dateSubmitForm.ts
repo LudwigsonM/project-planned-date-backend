@@ -23,3 +23,8 @@ export const createDateSubmitForm = async (dateSubmitForm: DateSubmitForm) => {
   const { insertedId } = await col.insertOne(dateSubmitForm);
   return insertedId.toString();
 };
+
+export const getDateSubmitForm = async () => {
+  const col = await getDateSubmitFormCollection();
+  return col.find().toArray();
+};

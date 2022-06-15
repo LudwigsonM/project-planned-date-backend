@@ -6,7 +6,10 @@ import { getActivites } from "./services/activites";
 import { getEntertainments } from "./services/entertainments";
 import { getRestaurant } from "./services/restaurants";
 import { getHomeDates } from "./services/homeDates";
-import { createDateSubmitForm } from "./services/dateSubmitForm";
+import {
+  getDateSubmitForm,
+  createDateSubmitForm,
+} from "./services/dateSubmitForm";
 
 config();
 
@@ -45,6 +48,11 @@ app.get("/restaurants", async (req, res) => {
 app.get("/homedates", async (req, res) => {
   const homedates = await getHomeDates();
   res.send(homedates);
+});
+
+app.get("/submitadate", async (req, res) => {
+  const dateSubmitForm = await getDateSubmitForm();
+  res.send(dateSubmitForm);
 });
 
 //Post route(s)
